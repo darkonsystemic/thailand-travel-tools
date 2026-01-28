@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thailand Trivia Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #C9A961;
+            color: #000000;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #e0e0e0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #C9A961 0%, #a88a4a 100%);
+            transition: width 0.3s ease;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .question-section {
+            text-align: center;
+        }
+
+        .question-number {
+            color: #C9A961;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .option-btn:hover {
+            border-color: #C9A961;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, #C9A961 0%, #1a1a1a 100%);
+            color: white;
+            border-color: #C9A961;
+        }
+
+        .option-btn.correct {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .option-btn.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .reveal-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .reveal-section.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .answer-label {
+            font-weight: bold;
+            color: #C9A961;
+            margin-bottom: 10px;
+        }
+
+        .answer-stats {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .fun-fact {
+            color: #666;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #C9A961 0%, #1a1a1a 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 1.1em;
+            color: #C9A961;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .results-screen {
+            text-align: center;
+            display: none;
+        }
+
+        .results-screen.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .final-score {
+            font-size: 3em;
+            color: #C9A961;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .score-message {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            color: #C9A961;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #C9A961 0%, #a88a4a 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(240, 147, 251, 0.4);
+        }
+
+        .share-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .share-text {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #C9A961;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .question-text {
+                font-size: 1.2em;
+            }
+            
+            .final-score {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🇹🇭 Thailand Trivia Challenge</h1>
+            <p>How well do you really know Thailand?</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="content">
+            <div id="loadingScreen" class="loading">
+                Generating questions...
+            </div>
+
+            <div id="quizScreen" style="display: none;">
+                <div class="score-display" id="scoreDisplay">Score: 0 / 0</div>
+                
+                <div class="question-section">
+                    <div class="question-number" id="questionNumber"></div>
+                    <h2 class="question-text" id="questionText"></h2>
+                    
+                    <div class="options" id="optionsContainer"></div>
+                    
+                    <div class="reveal-section" id="revealSection">
+                        <div class="answer-label">The Answer:</div>
+                        <div class="answer-stats" id="answerStats"></div>
+                        <div class="fun-fact" id="funFact"></div>
+                        <button class="next-btn" id="nextBtn">Next Question →</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultsScreen" class="results-screen">
+                <h2>Quiz Complete! 🎉</h2>
+                <div class="final-score" id="finalScore"></div>
+                <div class="score-message" id="scoreMessage"></div>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="correctStat">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="accuracyStat">0%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                </div>
+
+                <button class="restart-btn" id="restartBtn">Play Again</button>
+                
+                <div class="share-section">
+                    <div class="share-text">Think you know Thailand better?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample questions (in production, these would come from your API/Claude backend)
+        const sampleQuestions = [
+            {
+                question: "Which is more common in Thailand?",
+                optionA: "Buddhist Temples",
+                optionB: "Massage Parlours",
+                correctAnswer: "A",
+                stats: "~42,000 temples vs ~15,000 massage parlours",
+                funFact: "Thailand has more Buddhist temples per capita than almost any country in the world. Many Thai men become monks for at least a short period in their lives!"
+            },
+            {
+                question: "What's more numerous in Bangkok?",
+                optionA: "7-Eleven Stores",
+                optionB: "Street Food Vendors",
+                correctAnswer: "B",
+                stats: "~2,000 7-Elevens vs ~50,000+ street food vendors",
+                funFact: "Bangkok is considered the street food capital of the world! You can find food vendors on almost every corner, many operating 24/7."
+            },
+            {
+                question: "Which transportation is more common?",
+                optionA: "Tuk-tuks",
+                optionB: "Motorcycle Taxis",
+                correctAnswer: "B",
+                stats: "~20,000 tuk-tuks vs ~200,000+ motorcycle taxis",
+                funFact: "Motorcycle taxis (called 'win' in Thai) are the fastest way to navigate Bangkok's notorious traffic. Riders wear numbered orange vests!"
+            },
+            {
+                question: "What's more prevalent in Thailand?",
+                optionA: "Islands",
+                optionB: "National Parks",
+                correctAnswer: "A",
+                stats: "~1,430 islands vs ~150 national parks",
+                funFact: "Thailand's islands range from world-famous destinations like Phuket to tiny uninhabited paradises. Many remain unexplored by tourists!"
+            },
+            {
+                question: "Which has more locations?",
+                optionA: "Starbucks Cafes",
+                optionB: "Traditional Thai Coffee Shops",
+                correctAnswer: "B",
+                stats: "~500 Starbucks vs ~5,000+ traditional coffee shops",
+                funFact: "Traditional Thai iced coffee (oliang) is strong, sweet, and often mixed with condensed milk. It's a completely different experience from Western coffee!"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let questions = [];
+        let selectedAnswer = null;
+
+        // Initialize quiz
+        function initQuiz() {
+            questions = [...sampleQuestions];
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.getElementById('quizScreen').style.display = 'block';
+                loadQuestion();
+            }, 1000);
+        }
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            
+            document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('scoreDisplay').textContent = `Score: ${score} / ${currentQuestion}`;
+            
+            // Update progress bar
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // Create option buttons
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = `
+                <button class="option-btn" data-answer="A">${question.optionA}</button>
+                <button class="option-btn" data-answer="B">${question.optionB}</button>
+            `;
+            
+            // Add click handlers
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.addEventListener('click', handleAnswer);
+            });
+            
+            // Hide reveal section
+            document.getElementById('revealSection').classList.remove('show');
+            selectedAnswer = null;
+        }
+
+        function handleAnswer(e) {
+            if (selectedAnswer) return; // Already answered
+            
+            selectedAnswer = e.target.dataset.answer;
+            const question = questions[currentQuestion];
+            const isCorrect = selectedAnswer === question.correctAnswer;
+            
+            if (isCorrect) {
+                score++;
+                e.target.classList.add('correct');
+            } else {
+                e.target.classList.add('incorrect');
+                // Highlight correct answer
+                document.querySelectorAll('.option-btn').forEach(btn => {
+                    if (btn.dataset.answer === question.correctAnswer) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Disable all buttons
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.disabled = true;
+            });
+            
+            // Show reveal section
+            document.getElementById('answerStats').textContent = question.stats;
+            document.getElementById('funFact').textContent = question.funFact;
+            document.getElementById('revealSection').classList.add('show');
+            
+            // Update score display
+            document.getElementById('scoreDisplay').textContent = `Score: ${score} / ${currentQuestion + 1}`;
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentQuestion++;
+            
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        function showResults() {
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('resultsScreen').classList.add('show');
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            document.getElementById('finalScore').textContent = `${score} / ${questions.length}`;
+            document.getElementById('correctStat').textContent = score;
+            document.getElementById('accuracyStat').textContent = percentage + '%';
+            
+            // Update progress bar to 100%
+            document.getElementById('progressFill').style.width = '100%';
+            
+            // Generate message based on score
+            let message = '';
+            if (percentage === 100) {
+                message = "Perfect! You're a Thailand expert! 🏆";
+            } else if (percentage >= 80) {
+                message = "Impressive! You know Thailand well! 🌟";
+            } else if (percentage >= 60) {
+                message = "Not bad! You know more than most tourists! 👍";
+            } else if (percentage >= 40) {
+                message = "Good try! Time to plan another trip! ✈️";
+            } else {
+                message = "Thailand has surprised you! Visit and learn more! 🇹🇭";
+            }
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        document.getElementById('restartBtn').addEventListener('click', () => {
+            document.getElementById('resultsScreen').classList.remove('show');
+            document.getElementById('loadingScreen').style.display = 'block';
+            initQuiz();
+        });
+
+        // Start the quiz
+        initQuiz();
+    </script>
+</body>
+</html>

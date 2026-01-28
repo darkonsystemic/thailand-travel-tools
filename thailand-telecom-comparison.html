@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thailand Telecom Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #000000;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .controls {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .control-group {
+            margin-bottom: 30px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .slider-container {
+            position: relative;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e2e8f0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #C9A961;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #5a67d8;
+            transform: scale(1.1);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #C9A961;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s ease;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            background: #5a67d8;
+            transform: scale(1.1);
+        }
+
+        .value-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .current-value {
+            font-weight: 600;
+            color: #C9A961;
+            font-size: 1.1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .plan-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: #C9A961;
+        }
+
+        .plan-card.best-value {
+            border-color: #48bb78;
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+        }
+
+        .plan-card.best-value::before {
+            content: "BEST VALUE";
+            position: absolute;
+            top: 12px;
+            right: -30px;
+            background: #48bb78;
+            color: white;
+            padding: 4px 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+        }
+
+        .provider-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .provider-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .physical-sim {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .esim {
+            background: #fbd38d;
+            color: #7c2d12;
+        }
+
+        .provider-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #C9A961;
+            margin: 16px 0;
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 400;
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .limitation {
+            color: #e53e3e;
+        }
+
+        .limitation::before {
+            content: "!";
+            color: #e53e3e;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 14px;
+            background: #C9A961;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .disclaimer {
+            background: #fef5e7;
+            border-left: 4px solid #f39c12;
+            padding: 16px;
+            border-radius: 6px;
+            color: #7c4d1b;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇹🇭 Thailand Telecom Comparison</h1>
+        <p class="subtitle">Find the perfect SIM or eSIM for your Thailand adventure</p>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="data">Data Needed</label>
+                <div class="slider-container">
+                    <input type="range" id="data" min="1" max="50" value="10" step="1">
+                    <div class="value-display">
+                        <span>1 GB</span>
+                        <span class="current-value"><span id="dataValue">10</span> GB</span>
+                        <span>50 GB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="duration">Trip Duration</label>
+                <div class="slider-container">
+                    <input type="range" id="duration" min="3" max="30" value="7" step="1">
+                    <div class="value-display">
+                        <span>3 days</span>
+                        <span class="current-value"><span id="durationValue">7</span> days</span>
+                        <span>30 days</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="calls">Call Minutes Needed</label>
+                <div class="slider-container">
+                    <input type="range" id="calls" min="0" max="300" value="30" step="10">
+                    <div class="value-display">
+                        <span>None</span>
+                        <span class="current-value"><span id="callsValue">30</span> min</span>
+                        <span>300 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-grid" id="planCards"></div>
+
+        <div style="background: #e6f7ff; border-left: 4px solid #1890ff; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+            <h3 style="color: #0050b3; margin-bottom: 12px; font-size: 1.1rem;">💡 Pro Tips</h3>
+            <ul style="margin: 0 0 0 20px; line-height: 1.7; color: #0050b3;">
+                <li><strong>Airport vs City:</strong> Airport SIM prices are often inflated. If you can wait, buy in the city for better rates.</li>
+                <li><strong>Test Before You Leave:</strong> Activate and test your SIM/eSIM at the airport before heading to your hotel.</li>
+                <li><strong>Google Maps Offline:</strong> Download offline maps before relying solely on mobile data in remote areas.</li>
+                <li><strong>Phuket/Samui:</strong> AIS has the strongest coverage. Good for beach clubs and boat trips.</li>
+                <li><strong>Koh Tao/Phi Phi:</strong> TrueMove H often performs better for diving and island hopping.</li>
+                <li><strong>Bangkok/Chiang Mai:</strong> All providers work well. Choose based on price.</li>
+            </ul>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Important Notes:</strong>
+            <ul style="margin: 10px 0 0 20px; line-height: 1.6;">
+                <li><strong>Prices:</strong> Approximate and may vary. Always verify current rates with providers.</li>
+                <li><strong>Physical SIMs:</strong> Require pickup at airport booths or local stores. Bring your passport for registration.</li>
+                <li><strong>eSIMs:</strong> Activate instantly via QR code. Ensure your phone supports eSIM before purchasing.</li>
+                <li><strong>Island Coverage:</strong> Remote islands may have spotty coverage. AIS typically has the widest reach. TrueMove H is known for better signals on diving islands like Koh Tao.</li>
+                <li><strong>Top-ups:</strong> Physical SIMs can be topped up at 7-Eleven, Family Mart, or via provider apps. eSIM top-ups are app-only (credit card required).</li>
+                <li><strong>Speed Throttling:</strong> "Unlimited" eSIM plans may throttle speeds after daily limits (typically 1-2GB/day at full speed).</li>
+                <li><strong>WhatsApp Calls:</strong> Data-only eSIMs work fine for WhatsApp, LINE, or Skype calls - you just can't use regular phone calls.</li>
+                <li><strong>Dual SIM Strategy:</strong> Many travelers use a cheap eSIM for data + keep their home SIM for 2FA/important calls.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const providers = [
+            {
+                name: "AIS",
+                type: "physical",
+                basePrice: 299,
+                dataRate: 15,
+                callRate: 0.5,
+                features: ["Widest 5G coverage", "Best for Phuket & Krabi", "myAIS app for top-ups", "Free calls to AIS numbers"],
+                coverage: "Excellent nationwide",
+                islands: "Best: Phuket, Koh Samui, Krabi",
+                topup: "myAIS app, 7-Eleven stores"
+            },
+            {
+                name: "DTAC",
+                type: "physical",
+                basePrice: 249,
+                dataRate: 12,
+                callRate: 0.6,
+                features: ["Good urban coverage", "Strong in Bangkok", "dtac GO app", "Happy Tourist SIM"],
+                coverage: "Good in cities",
+                islands: "Limited on remote islands",
+                topup: "dtac app, Family Mart stores"
+            },
+            {
+                name: "TrueMove H",
+                type: "physical",
+                basePrice: 279,
+                dataRate: 14,
+                callRate: 0.55,
+                features: ["Excellent Koh Tao signal", "Good Phi Phi coverage", "TrueMove H app", "Easy top-up"],
+                coverage: "Very good",
+                islands: "Best: Koh Tao, Phi Phi, Koh Lanta",
+                topup: "TrueMove app, most convenience stores"
+            },
+            {
+                name: "Airalo",
+                type: "esim",
+                basePrice: 4.5,
+                dataRate: 4,
+                callRate: 0,
+                features: ["Instant activation", "App-based top-ups", "Data only", "Uses AIS network"],
+                coverage: "Follows AIS coverage",
+                dataOnly: true,
+                islands: "Good: Major islands (via AIS)",
+                topup: "Airalo app only"
+            },
+            {
+                name: "Holafly",
+                type: "esim",
+                basePrice: 19,
+                dataRate: 8,
+                callRate: 0,
+                features: ["Unlimited data*", "24/7 chat support", "No top-up needed", "Data only"],
+                coverage: "Premium networks",
+                dataOnly: true,
+                unlimited: true,
+                islands: "Good on major tourist islands",
+                topup: "Fixed plan - no top-ups"
+            },
+            {
+                name: "Nomad",
+                type: "esim",
+                basePrice: 5,
+                dataRate: 5,
+                callRate: 0,
+                features: ["Flexible plans", "Nomad app for top-ups", "Data only", "Multiple carrier options"],
+                coverage: "Multiple carriers",
+                dataOnly: true,
+                islands: "Varies by carrier selected",
+                topup: "Nomad app, credit card"
+            }
+        ];
+
+        function calculatePrice(provider, data, duration, calls) {
+            if (provider.unlimited) {
+                return provider.basePrice * Math.ceil(duration / 7);
+            }
+            
+            let price = provider.basePrice;
+            price += (data * provider.dataRate * duration) / 30;
+            if (!provider.dataOnly) {
+                price += calls * provider.callRate;
+            }
+            return Math.round(price);
+        }
+
+        function findBestValue(prices) {
+            let minPrice = Infinity;
+            let bestIndex = -1;
+            prices.forEach((price, index) => {
+                if (price < minPrice && !providers[index].dataOnly) {
+                    minPrice = price;
+                    bestIndex = index;
+                }
+            });
+            return bestIndex;
+        }
+
+        function updateComparison() {
+            const data = parseInt(document.getElementById('data').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const calls = parseInt(document.getElementById('calls').value);
+
+            document.getElementById('dataValue').textContent = data;
+            document.getElementById('durationValue').textContent = duration;
+            document.getElementById('callsValue').textContent = calls;
+
+            const prices = providers.map(p => calculatePrice(p, data, duration, calls));
+            const bestValueIndex = findBestValue(prices);
+
+            const planCards = document.getElementById('planCards');
+            planCards.innerHTML = providers.map((provider, index) => {
+                const price = prices[index];
+                const isBestValue = index === bestValueIndex;
+                
+                let featuresHTML = provider.features.map(f => 
+                    `<li>${f}</li>`
+                ).join('');
+
+                if (provider.dataOnly && calls > 0) {
+                    featuresHTML += `<li class="limitation">No voice calls included</li>`;
+                }
+
+                return `
+                    <div class="plan-card ${isBestValue ? 'best-value' : ''}">
+                        <div class="provider-header">
+                            <span class="provider-name">${provider.name}</span>
+                            <span class="provider-type ${provider.type}-sim">${provider.type === 'physical' ? 'Physical SIM' : 'eSIM'}</span>
+                        </div>
+                        <div class="price">
+                            ฿${price}
+                            <span class="price-unit">/ ${duration} days</span>
+                        </div>
+                        <ul class="features">
+                            ${featuresHTML}
+                            <li>${provider.coverage}</li>
+                            <li><strong>Islands:</strong> ${provider.islands}</li>
+                            <li><strong>Top-up:</strong> ${provider.topup}</li>
+                        </ul>
+                        <button class="cta-button">Learn More</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('data').addEventListener('input', updateComparison);
+        document.getElementById('duration').addEventListener('input', updateComparison);
+        document.getElementById('calls').addEventListener('input', updateComparison);
+
+        updateComparison();
+    </script>
+</body>
+</html>
