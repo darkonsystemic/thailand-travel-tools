@@ -6,12 +6,10 @@
   <title>Thailand Route Planner</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: #000000;
       min-height: 100vh;
     }
-
     .route-planner {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       max-width: 1000px;
@@ -19,23 +17,19 @@
       padding: 2rem;
       background: #000000;
     }
-
     .planner-header {
       text-align: center;
       margin-bottom: 2rem;
     }
-
     .planner-header h1 {
       font-size: 2rem;
       color: #ffffff;
       margin-bottom: 0.5rem;
     }
-
     .planner-header p {
       color: #9ca3af;
       font-size: 1.1rem;
     }
-
     /* Route Builder */
     .route-builder {
       background: #ffffff;
@@ -44,7 +38,6 @@
       margin-bottom: 2rem;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-
     .route-row {
       display: flex;
       align-items: center;
@@ -52,13 +45,11 @@
       margin-bottom: 1rem;
       flex-wrap: wrap;
     }
-
     .route-row label {
       font-weight: 600;
       color: #1a1a1a;
       min-width: 80px;
     }
-
     .route-row select {
       flex: 1;
       min-width: 200px;
@@ -71,32 +62,27 @@
       cursor: pointer;
       transition: border-color 0.2s;
     }
-
     .route-row select:focus {
       outline: none;
       border-color: #C9A961;
     }
-
     /* Priority Selector */
     .priority-section {
       margin-top: 1.5rem;
       padding-top: 1.5rem;
       border-top: 1px solid #e2e8f0;
     }
-
     .priority-label {
       font-weight: 600;
       color: #1a1a1a;
       margin-bottom: 0.75rem;
       display: block;
     }
-
     .priority-options {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
-
     .priority-btn {
       padding: 0.6rem 1.2rem;
       border: 2px solid #e2e8f0;
@@ -111,26 +97,21 @@
       align-items: center;
       gap: 0.4rem;
     }
-
     .priority-btn:hover {
       border-color: #C9A961;
     }
-
     .priority-btn.active {
       border-color: #C9A961;
       background: #C9A961;
       color: #000000;
     }
-
     .priority-btn .icon {
       font-size: 1.1rem;
     }
-
     /* Stops Container */
     .stops-container {
       margin: 0.5rem 0 1rem 0;
     }
-
     .stop-row {
       display: flex;
       align-items: center;
@@ -138,7 +119,6 @@
       margin-bottom: 0.5rem;
       padding-left: 80px;
     }
-
     .stop-row select {
       flex: 1;
       padding: 0.65rem 0.9rem;
@@ -149,12 +129,10 @@
       color: #1a1a1a;
       cursor: pointer;
     }
-
     .stop-row select:focus {
       outline: none;
       border-color: #C9A961;
     }
-
     .remove-stop-btn {
       background: #fee2e2;
       color: #dc2626;
@@ -170,11 +148,9 @@
       transition: background 0.2s;
       flex-shrink: 0;
     }
-
     .remove-stop-btn:hover {
       background: #fecaca;
     }
-
     .add-stop-btn {
       background: #ffffff;
       color: #C9A961;
@@ -191,12 +167,10 @@
       align-items: center;
       gap: 0.4rem;
     }
-
     .add-stop-btn:hover {
       background: #bbf7d0;
       border-style: solid;
     }
-
     .stop-label {
       font-size: 0.85rem;
       color: #64748b;
@@ -204,7 +178,6 @@
       text-align: right;
       padding-right: 10px;
     }
-
     .plan-btn {
       background: #C9A961;
       color: white;
@@ -218,11 +191,9 @@
       width: 100%;
       transition: background 0.2s;
     }
-
     .plan-btn:hover {
       background: #a88a4a;
     }
-
     /* Results Section */
     .results-section {
       background: #1a1a1a;
@@ -231,7 +202,6 @@
       overflow: hidden;
       margin-bottom: 2rem;
     }
-
     .results-header {
       background: #C9A961;
       color: #000000;
@@ -242,29 +212,24 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .route-type-badge {
       background: rgba(0,0,0,0.2);
       padding: 0.3rem 0.8rem;
       border-radius: 1rem;
       font-size: 0.85rem;
     }
-
     .results-body {
       padding: 1.5rem;
     }
-
     /* Journey Step */
     .journey-step {
       display: flex;
       margin-bottom: 1.5rem;
       position: relative;
     }
-
     .journey-step:last-child {
       margin-bottom: 0;
     }
-
     .step-timeline {
       display: flex;
       flex-direction: column;
@@ -272,7 +237,6 @@
       margin-right: 1rem;
       min-width: 40px;
     }
-
     .step-number {
       width: 36px;
       height: 36px;
@@ -286,18 +250,15 @@
       font-size: 0.9rem;
       flex-shrink: 0;
     }
-
     .step-line {
       width: 3px;
       flex: 1;
       background: #444;
       margin-top: 0.5rem;
     }
-
     .journey-step:last-child .step-line {
       display: none;
     }
-
     .step-content {
       flex: 1;
       background: #2a2a2a;
@@ -305,7 +266,6 @@
       padding: 1rem 1.25rem;
       border: 1px solid #444;
     }
-
     .step-header {
       display: flex;
       justify-content: space-between;
@@ -314,13 +274,11 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-
     .step-route {
       font-weight: 600;
       color: #ffffff;
       font-size: 1.05rem;
     }
-
     .step-mode {
       display: inline-flex;
       align-items: center;
@@ -333,7 +291,6 @@
       font-weight: 500;
       border: 1px solid #C9A961;
     }
-
     .step-details {
       display: flex;
       flex-wrap: wrap;
@@ -342,17 +299,14 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
-
     .step-detail {
       display: flex;
       align-items: center;
       gap: 0.3rem;
     }
-
     .step-detail .icon {
       font-size: 1rem;
     }
-
     .step-instructions {
       margin-top: 0.75rem;
       padding-top: 0.75rem;
@@ -361,7 +315,6 @@
       color: #9ca3af;
       line-height: 1.5;
     }
-
     .step-tip {
       background: #2a2a1a;
       color: #C9A961;
@@ -374,11 +327,9 @@
       gap: 0.4rem;
       border: 1px solid #C9A961;
     }
-
     .step-tip .icon {
       flex-shrink: 0;
     }
-
     /* Route Summary */
     .route-summary {
       background: linear-gradient(135deg, #C9A961 0%, #a88a4a 100%);
@@ -388,27 +339,22 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     .summary-item {
       text-align: center;
       color: white;
     }
-
     .summary-value {
       font-size: 1.75rem;
       font-weight: bold;
     }
-
     .summary-label {
       font-size: 0.85rem;
       opacity: 0.9;
     }
-
     /* Alternative Routes */
     .alternatives-section {
       margin-top: 2rem;
     }
-
     .alternatives-header {
       font-size: 1.1rem;
       font-weight: 600;
@@ -418,7 +364,6 @@
       align-items: center;
       gap: 0.5rem;
     }
-
     .alternative-card {
       background: #1a1a1a;
       border: 1px solid #333;
@@ -428,24 +373,20 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-
     .alternative-card:hover {
       border-color: #C9A961;
       box-shadow: 0 4px 12px rgba(201, 169, 97, 0.15);
     }
-
     .alternative-card.active {
       border-color: #C9A961;
       background: #2a2a1a;
     }
-
     .alt-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.5rem;
     }
-
     .alt-type {
       font-weight: 600;
       color: #ffffff;
@@ -453,26 +394,22 @@
       align-items: center;
       gap: 0.4rem;
     }
-
     .alt-stats {
       display: flex;
       gap: 1rem;
       font-size: 0.9rem;
       color: #9ca3af;
     }
-
     .alt-route-preview {
       font-size: 0.85rem;
       color: #9ca3af;
       margin-top: 0.5rem;
     }
-
     /* Map Section */
     .map-section {
       text-align: center;
       margin-top: 2rem;
     }
-
     .map-container {
       background: #b3d9ff;
       border-radius: 1rem;
@@ -482,7 +419,6 @@
       justify-content: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-
     .map-wrapper {
       position: relative;
       width: 600px;
@@ -492,13 +428,11 @@
       border-radius: 0.5rem;
       overflow: hidden;
     }
-
     .map-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     .map-svg {
       position: absolute;
       top: 0;
@@ -507,7 +441,6 @@
       height: 100%;
       pointer-events: none;
     }
-
     .route-line {
       fill: none;
       stroke: #000000;
@@ -518,43 +451,35 @@
       stroke-dashoffset: 1000;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
-
     .route-line.animate {
       animation: drawLine 3s ease-out forwards;
     }
-
     @keyframes drawLine {
       to {
         stroke-dashoffset: 0;
       }
     }
-
     .location-dot {
       fill: #dc2626;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
     }
-
     .location-dot.visited {
       fill: #dc2626;
     }
-
     .location-dot.current {
       fill: #dc2626;
       animation: pulse 1s ease-in-out infinite;
     }
-
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.3); opacity: 0.8; }
     }
-
     .location-label-bg {
       fill: #ffffff;
       opacity: 0.85;
       rx: 4;
       ry: 4;
     }
-
     .location-label {
       font-size: 11px;
       font-weight: 700;
@@ -562,25 +487,21 @@
       text-anchor: middle;
       filter: drop-shadow(0 1px 2px rgba(255,255,255,0.8));
     }
-
     .moving-dot {
       fill: #dc2626;
       filter: drop-shadow(0 2px 6px rgba(220, 38, 38, 0.6));
     }
-
     .map-placeholder {
       color: #3b82f6;
       font-size: 1rem;
       text-align: center;
       padding: 2rem;
     }
-
     .map-caption {
       margin-top: 0.75rem;
       font-size: 0.9rem;
       color: #9ca3af;
     }
-
     .map-legend {
       display: flex;
       justify-content: center;
@@ -589,22 +510,18 @@
       font-size: 0.85rem;
       color: #9ca3af;
     }
-
     .legend-item {
       display: flex;
       align-items: center;
       gap: 0.4rem;
     }
-
     .legend-dot {
       width: 12px;
       height: 12px;
       border-radius: 50%;
     }
-
     .legend-dot.start { background: #dc2626; }
     .legend-dot.visited { background: #16a34a; }
-
     /* Responsive map */
     @media (max-width: 650px) {
       .map-wrapper {
@@ -612,19 +529,16 @@
         height: 400px;
       }
     }
-
     /* No route message */
     .no-route {
       text-align: center;
       padding: 3rem 2rem;
       color: #64748b;
     }
-
     .no-route .icon {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
     /* Responsive */
     @media (max-width: 600px) {
       .route-row {
@@ -666,7 +580,6 @@
       <h1>🇹🇭 Thailand Route Planner</h1>
       <p>Plan your journey across Thailand - we'll figure out all the connections for you!</p>
     </div>
-
     <!-- Route Builder -->
     <div class="route-builder">
       <div class="route-row">
@@ -704,7 +617,6 @@
           </optgroup>
         </select>
       </div>
-
       <!-- Stops Container -->
       <div class="stops-container" id="stops-container">
         <!-- Dynamic stops will be added here -->
@@ -712,7 +624,6 @@
       <button class="add-stop-btn" id="add-stop-btn">
         <span>+</span> Add a stop
       </button>
-
       <div class="route-row">
         <label>To:</label>
         <select id="end-select">
@@ -748,7 +659,6 @@
           </optgroup>
         </select>
       </div>
-
       <div class="priority-section">
         <span class="priority-label">What matters most to you?</span>
         <div class="priority-options">
@@ -763,25 +673,18 @@
           </button>
         </div>
       </div>
-
       <button class="plan-btn" id="plan-btn">Plan My Journey</button>
     </div>
-
     <!-- Results -->
     <div id="results-container"></div>
-
     <!-- Map -->
     <div class="map-section" id="map-section">
       <div class="map-container">
         <div class="map-wrapper" id="map-wrapper">
-          <!-- Your Thailand map image goes here -->
-          <img src="https://darkonlondon.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-7-2026-08_16_33-PM.jpg" alt="Thailand Map" class="map-image" id="map-image" onerror="this.style.display='none'">
+          <img src="https://darkonlondon.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-7-2026-08_31_32-PM.png" alt="Thailand Map" class="map-image" id="map-image" onerror="this.style.display='none'">
           <svg class="map-svg" id="map-svg" viewBox="0 0 600 500">
-            <!-- Route lines will be drawn here -->
             <g id="route-lines"></g>
-            <!-- Location dots will be placed here -->
             <g id="location-dots"></g>
-            <!-- Moving dot for animation -->
             <circle id="moving-dot" class="moving-dot" r="8" style="display: none;"></circle>
           </svg>
         </div>
@@ -793,28 +696,22 @@
       <p class="map-caption">Your route across Thailand</p>
     </div>
   </div>
-
   <script>
     (function() {
       // ===== DESTINATION DATA =====
       const destinations = {
-        // Central
         bangkok: { name: 'Bangkok', region: 'Central', type: 'hub', hasAirport: true, hasTrainStation: true },
-        // North
         chiangmai: { name: 'Chiang Mai', region: 'North', type: 'hub', hasAirport: true, hasTrainStation: true },
         chiangrai: { name: 'Chiang Rai', region: 'North', type: 'city', hasAirport: true },
         pai: { name: 'Pai', region: 'North', type: 'town' },
-        // East Coast
         pattaya: { name: 'Pattaya', region: 'East', type: 'city' },
         trat: { name: 'Trat', region: 'East', type: 'hub', hasAirport: true },
         kohchang: { name: 'Koh Chang', region: 'East', type: 'island' },
         kohkood: { name: 'Koh Kood', region: 'East', type: 'island' },
-        // Gulf
         suratthani: { name: 'Surat Thani', region: 'Gulf', type: 'hub', hasAirport: true, hasTrainStation: true },
         samui: { name: 'Koh Samui', region: 'Gulf', type: 'island', hasAirport: true },
         kohphangan: { name: 'Koh Phangan', region: 'Gulf', type: 'island' },
         kohtao: { name: 'Koh Tao', region: 'Gulf', type: 'island' },
-        // Andaman
         phuket: { name: 'Phuket', region: 'Andaman', type: 'hub', hasAirport: true },
         krabi: { name: 'Krabi', region: 'Andaman', type: 'hub', hasAirport: true },
         phiphi: { name: 'Koh Phi Phi', region: 'Andaman', type: 'island' },
@@ -826,43 +723,140 @@
 
       // ===== MAP COORDINATES =====
       const mapCoordinates = {
-        chiangrai: { x: 260, y: 35 },
-        chiangmai: { x: 216, y: 88 },
-        pai: { x: 198, y: 52 },
-        bangkok: { x: 268, y: 236 },
-        pattaya: { x: 286, y: 252 },
-        trat: { x: 315, y: 258 },
-        kohchang: { x: 326, y: 286 },
-        kohkood: { x: 332, y: 294 },
-        suratthani: { x: 240, y: 379 },
-        samui: { x: 251, y: 367 },
-        kohphangan: { x: 254, y: 357 },
-        kohtao: { x: 252, y: 344 },
-        phuket: { x: 202, y: 416 },
-        krabi: { x: 214, y: 400 },
-        kohyaoyai: { x: 207, y: 406 },
-        phiphi: { x: 215, y: 414 },
-        kohlanta: { x: 225, y: 425 },
-        kohmook: { x: 228, y: 432 },
-        kohlipe: { x: 230, y: 457 }
+        chiangrai: { x: 216, y: 25 },
+        chiangmai: { x: 216, y: 78 },
+        pai: { x: 198, y: 42 },
+        bangkok: { x: 268, y: 226 },
+        pattaya: { x: 286, y: 242 },
+        trat: { x: 315, y: 248 },
+        kohchang: { x: 326, y: 276 },
+        kohkood: { x: 332, y: 284 },
+        suratthani: { x: 240, y: 369 },
+        samui: { x: 251, y: 357 },
+        kohphangan: { x: 254, y: 347 },
+        kohtao: { x: 252, y: 334 },
+        phuket: { x: 202, y: 406 },
+        krabi: { x: 214, y: 390 },
+        kohyaoyai: { x: 207, y: 396 },
+        phiphi: { x: 215, y: 404 },
+        kohlanta: { x: 225, y: 415 },
+        kohmook: { x: 228, y: 422 },
+        kohlipe: { x: 230, y: 447 }
       };
 
-      // ===== TRANSPORT SEGMENTS (shortened for brevity - full version has all segments) =====
+      // ===== COMPLETE TRANSPORT SEGMENTS =====
       const segments = [
+        // ===== BANGKOK TO NORTH =====
         { from: 'bangkok', to: 'chiangmai', mode: 'flight', time: 75, cost: 35, comfort: 9, icon: '✈️',
           instructions: 'Flights depart from Don Mueang (DMK). AirAsia, Nok Air, Lion Air, Thai VietJet all operate. Book early for $25-50 fares.' },
         { from: 'bangkok', to: 'chiangmai', mode: 'sleeper-train', time: 660, cost: 40, comfort: 8, icon: '🚂',
-          instructions: 'Overnight sleeper train from Krung Thep Aphiwat Central Terminal. 10-14 hour journey.' },
+          instructions: 'Overnight sleeper train from Krung Thep Aphiwat Central Terminal. 10-14 hour journey. Upper berth cheaper, lower berth more space.' },
         { from: 'bangkok', to: 'chiangmai', mode: 'bus', time: 600, cost: 25, comfort: 6, icon: '🚌',
-          instructions: 'VIP buses from Chatuchak Bus Terminal. 9.5-12 hours.' },
-        { from: 'bangkok', to: 'pattaya', mode: 'bus', time: 150, cost: 6, comfort: 6, icon: '🚌',
-          instructions: 'Buses leave from Ekkamai every 30 mins.' },
-        { from: 'bangkok', to: 'trat', mode: 'bus', time: 360, cost: 12, comfort: 6, icon: '🚌',
-          instructions: 'Bus 999 from Ekkamai departs 07:45 & 09:00.' },
-        { from: 'trat', to: 'kohchang', mode: 'ferry', time: 45, cost: 4, comfort: 7, icon: '⛴️',
-          instructions: 'Ferries from Centerpoint Pier. Runs every 30-60 mins.' },
+          instructions: 'VIP buses from Chatuchak Bus Terminal. 9.5-12 hours. NCA (Nakhonchai Air) is the best operator.' },
+        { from: 'bangkok', to: 'chiangrai', mode: 'flight', time: 80, cost: 40, comfort: 9, icon: '✈️',
+          instructions: 'Flights from Don Mueang (DMK) to Mae Fah Luang Airport. AirAsia and Nok Air operate daily.' },
+        { from: 'bangkok', to: 'chiangrai', mode: 'bus', time: 660, cost: 28, comfort: 6, icon: '🚌',
+          instructions: 'Overnight VIP bus from Chatuchak Bus Terminal. About 11 hours. Greenbus and NCA operate this route.' },
+
+        // ===== NORTH INTERNAL =====
+        { from: 'chiangmai', to: 'chiangrai', mode: 'bus', time: 180, cost: 8, comfort: 7, icon: '🚌',
+          instructions: 'Greenbus from Arcade Bus Station runs hourly. 3 hours via the new highway. VIP class recommended.' },
         { from: 'chiangmai', to: 'pai', mode: 'minivan', time: 210, cost: 6, comfort: 5, icon: '🚐',
-          instructions: 'Minivans from Arcade Bus Station. 3-4 hours, 762 CURVES!' },
+          instructions: 'Minivans from Arcade Bus Station. 3-4 hours, 762 CURVES! Take motion sickness tablets. Morning departures recommended.' },
+        { from: 'chiangrai', to: 'pai', mode: 'bus', time: 300, cost: 10, comfort: 5, icon: '🚌',
+          instructions: 'No direct bus - take Chiang Rai to Chiang Mai bus, then transfer to Pai minivan. Or hire a private car.' },
+
+        // ===== BANGKOK TO EAST COAST =====
+        { from: 'bangkok', to: 'pattaya', mode: 'bus', time: 150, cost: 6, comfort: 6, icon: '🚌',
+          instructions: 'Buses leave from Ekkamai (Eastern) Bus Terminal every 30 minutes. Bell Travel Service also runs from Khao San Road.' },
+        { from: 'bangkok', to: 'trat', mode: 'bus', time: 360, cost: 12, comfort: 6, icon: '🚌',
+          instructions: 'Bus 999 from Ekkamai departs 07:45 and 09:00 daily. 5-6 hours. Cherdchai Tour also operates this route.' },
+        { from: 'bangkok', to: 'trat', mode: 'flight', time: 60, cost: 50, comfort: 9, icon: '✈️',
+          instructions: 'Bangkok Airways flies from Suvarnabhumi to Trat Airport. About 1 hour, but expensive.' },
+        { from: 'pattaya', to: 'trat', mode: 'bus', time: 240, cost: 10, comfort: 6, icon: '🚌',
+          instructions: 'Direct bus from Pattaya Bus Station. About 4 hours along the coast road.' },
+
+        // ===== EAST COAST ISLANDS =====
+        { from: 'trat', to: 'kohchang', mode: 'ferry', time: 45, cost: 4, comfort: 7, icon: '⛴️',
+          instructions: 'Ferries from Centerpoint Pier. Runs every 30-60 minutes from 6:30 AM to 7 PM. 45 min crossing.' },
+        { from: 'trat', to: 'kohkood', mode: 'speedboat', time: 75, cost: 15, comfort: 6, icon: '🚤',
+          instructions: 'Speedboats from Laem Sok Pier. Boonsiri operates daily departures. About 1.5 hours.' },
+        { from: 'kohchang', to: 'kohkood', mode: 'speedboat', time: 60, cost: 12, comfort: 6, icon: '🚤',
+          instructions: 'Boonsiri speedboat connects the islands. Seasonal schedule (Nov-May most reliable). About 1 hour.' },
+
+        // ===== BANGKOK TO GULF =====
+        { from: 'bangkok', to: 'suratthani', mode: 'flight', time: 70, cost: 35, comfort: 9, icon: '✈️',
+          instructions: 'Flights from Don Mueang or Suvarnabhumi. AirAsia, Nok Air, Thai Lion Air. About 1 hour 10 minutes.' },
+        { from: 'bangkok', to: 'suratthani', mode: 'sleeper-train', time: 540, cost: 30, comfort: 7, icon: '🚂',
+          instructions: 'Overnight sleeper from Krung Thep Aphiwat Central Terminal. Departs evening, arrives early morning. 9 hours.' },
+        { from: 'bangkok', to: 'suratthani', mode: 'bus', time: 540, cost: 20, comfort: 6, icon: '🚌',
+          instructions: 'VIP buses from Southern Bus Terminal (Sai Tai Mai). About 9 hours overnight. Phantip and Seatran operate.' },
+        { from: 'bangkok', to: 'samui', mode: 'flight', time: 75, cost: 80, comfort: 9, icon: '✈️',
+          instructions: 'Bangkok Airways flies direct from Suvarnabhumi to Koh Samui. Pricey but convenient - 1 hour 15 min.' },
+
+        // ===== GULF ISLAND CONNECTIONS =====
+        { from: 'suratthani', to: 'samui', mode: 'ferry', time: 90, cost: 8, comfort: 7, icon: '⛴️',
+          instructions: 'Seatran Discovery or Raja Ferry from Donsak Pier. Combined bus+ferry tickets available from Surat Thani town/airport.' },
+        { from: 'suratthani', to: 'kohphangan', mode: 'ferry', time: 150, cost: 10, comfort: 7, icon: '⛴️',
+          instructions: 'Raja Ferry or Seatran from Donsak Pier. Combined bus+ferry tickets include transfer from town/airport. About 2.5 hours.' },
+        { from: 'suratthani', to: 'kohtao', mode: 'ferry', time: 360, cost: 18, comfort: 5, icon: '⛴️',
+          instructions: 'Night ferry from Surat Thani port or daytime speedboat via Donsak. Lomprayah catamaran is fastest at ~3.5 hrs from Donsak.' },
+        { from: 'samui', to: 'kohphangan', mode: 'ferry', time: 30, cost: 6, comfort: 8, icon: '⛴️',
+          instructions: 'Lomprayah or Seatran from Nathon or Bangrak Pier. Runs multiple times daily. Just 20-30 minutes.' },
+        { from: 'samui', to: 'kohtao', mode: 'ferry', time: 105, cost: 12, comfort: 7, icon: '⛴️',
+          instructions: 'Lomprayah catamaran from Bangrak Pier. Stops at Koh Phangan en route. About 1.5-2 hours total.' },
+        { from: 'kohphangan', to: 'kohtao', mode: 'ferry', time: 60, cost: 8, comfort: 7, icon: '⛴️',
+          instructions: 'Lomprayah or Seatran catamaran. Multiple daily departures. About 1 hour.' },
+
+        // ===== BANGKOK TO ANDAMAN =====
+        { from: 'bangkok', to: 'phuket', mode: 'flight', time: 80, cost: 40, comfort: 9, icon: '✈️',
+          instructions: 'Multiple airlines from Don Mueang and Suvarnabhumi. AirAsia, Nok Air, Thai VietJet, Thai Lion Air. About 1.5 hours.' },
+        { from: 'bangkok', to: 'phuket', mode: 'bus', time: 720, cost: 30, comfort: 5, icon: '🚌',
+          instructions: 'VIP overnight bus from Southern Bus Terminal. 12 hours. Take the VIP 24-seat bus for more comfort.' },
+        { from: 'bangkok', to: 'krabi', mode: 'flight', time: 80, cost: 40, comfort: 9, icon: '✈️',
+          instructions: 'AirAsia and other low-cost carriers from Don Mueang. About 1 hour 20 minutes direct.' },
+        { from: 'bangkok', to: 'krabi', mode: 'bus', time: 660, cost: 28, comfort: 5, icon: '🚌',
+          instructions: 'Overnight VIP bus from Southern Bus Terminal. About 11 hours. Transport Co. and Phantip operate.' },
+
+        // ===== ANDAMAN CONNECTIONS =====
+        { from: 'phuket', to: 'krabi', mode: 'minivan', time: 180, cost: 8, comfort: 6, icon: '🚐',
+          instructions: 'Shared minivans from Phuket Bus Terminal. About 3 hours via Phang Nga. Door-to-door service available.' },
+        { from: 'phuket', to: 'phiphi', mode: 'ferry', time: 120, cost: 15, comfort: 7, icon: '⛴️',
+          instructions: 'Ferries from Rassada Pier. Multiple operators daily (Andaman Wave Master, Phi Phi Cruiser). About 2 hours.' },
+        { from: 'phuket', to: 'kohyaoyai', mode: 'ferry', time: 60, cost: 10, comfort: 7, icon: '⛴️',
+          instructions: 'Speedboats from Bang Rong Pier (northeast Phuket). About 1 hour. Koh Yao Yai Ferry operates daily.' },
+        { from: 'krabi', to: 'phiphi', mode: 'ferry', time: 90, cost: 12, comfort: 7, icon: '⛴️',
+          instructions: 'Ferries from Klong Jilad Pier. Multiple departures 9 AM - 3 PM. About 1.5 hours.' },
+        { from: 'krabi', to: 'kohlanta', mode: 'minivan-ferry', time: 120, cost: 10, comfort: 6, icon: '🚐',
+          instructions: 'Minivan from Krabi town to Koh Lanta. Includes 2 short ferry crossings. Total about 2 hours door to door.' },
+        { from: 'krabi', to: 'kohyaoyai', mode: 'ferry', time: 75, cost: 12, comfort: 7, icon: '⛴️',
+          instructions: 'Speedboat from Tha Lane Pier or Klong Jilad Pier. About 1 hour 15 minutes.' },
+        { from: 'phiphi', to: 'kohlanta', mode: 'ferry', time: 60, cost: 10, comfort: 7, icon: '⛴️',
+          instructions: 'Direct ferry between the islands. Operates in high season (Nov-Apr). About 1 hour.' },
+        { from: 'phiphi', to: 'phuket', mode: 'ferry', time: 120, cost: 15, comfort: 7, icon: '⛴️',
+          instructions: 'Return ferries to Rassada Pier. Multiple departures in the morning and afternoon.' },
+        { from: 'kohlanta', to: 'kohmook', mode: 'ferry', time: 60, cost: 10, comfort: 6, icon: '⛴️',
+          instructions: 'Speedboat or longtail from Saladan Pier. Part of the Trang island hopping route. About 1 hour.' },
+        { from: 'kohlanta', to: 'kohlipe', mode: 'ferry', time: 240, cost: 25, comfort: 6, icon: '⛴️',
+          instructions: 'Tigerline or Bundhaya Speed Boat. High season only (Nov-Apr). About 4 hours with possible stops.' },
+        { from: 'kohmook', to: 'kohlipe', mode: 'ferry', time: 180, cost: 20, comfort: 6, icon: '⛴️',
+          instructions: 'Speedboat via Trang island chain. Seasonal service. About 3 hours with island stops.' },
+        { from: 'kohmook', to: 'kohlanta', mode: 'ferry', time: 60, cost: 10, comfort: 6, icon: '⛴️',
+          instructions: 'Speedboat or longtail back to Koh Lanta. About 1 hour. Check seasonal availability.' },
+
+        // ===== CROSS-REGION CONNECTIONS =====
+        { from: 'suratthani', to: 'krabi', mode: 'bus', time: 180, cost: 8, comfort: 6, icon: '🚌',
+          instructions: 'Direct bus from Surat Thani Bus Terminal. About 3 hours. Phantip 1970 operates this route.' },
+        { from: 'suratthani', to: 'phuket', mode: 'bus', time: 300, cost: 12, comfort: 6, icon: '🚌',
+          instructions: 'Bus from Surat Thani to Phuket Bus Terminal. About 5 hours. Phantip and local operators.' },
+        { from: 'phuket', to: 'samui', mode: 'flight', time: 60, cost: 50, comfort: 9, icon: '✈️',
+          instructions: 'Bangkok Airways operates a direct flight. About 1 hour. Expensive but saves a full day of travel.' },
+        { from: 'krabi', to: 'samui', mode: 'ferry-combo', time: 300, cost: 25, comfort: 6, icon: '⛴️',
+          instructions: 'Combined bus + ferry via Surat Thani/Donsak. Lomprayah and Seatran offer joint tickets. About 5 hours total.' },
+        { from: 'phuket', to: 'kohlipe', mode: 'ferry', time: 360, cost: 40, comfort: 6, icon: '⛴️',
+          instructions: 'Seasonal high-speed ferry (Nov-Apr). Tigerline operates with stops at Phi Phi and Lanta. About 6 hours.' },
+        { from: 'krabi', to: 'kohlipe', mode: 'ferry', time: 300, cost: 35, comfort: 6, icon: '⛴️',
+          instructions: 'Tigerline or Bundhaya Speed Boat. High season (Nov-Apr). About 5 hours with island stops.' }
       ];
 
       // Make bidirectional
@@ -872,6 +866,7 @@
         allSegments.push({ ...seg, from: seg.to, to: seg.from });
       });
 
+      // ===== DIRECTION SCORING =====
       const locationRegions = {
         chiangmai: { region: 'north', lat: 18.8 },
         chiangrai: { region: 'north', lat: 19.9 },
@@ -908,6 +903,7 @@
         return score;
       }
 
+      // ===== ROUTE FINDING =====
       function findAllRoutes(start, end, priority) {
         const routes = [];
         const visited = new Set();
@@ -961,44 +957,47 @@
         return routes.slice(0, 3);
       }
 
+      // ===== STATE =====
       let currentPriority = 'speed';
       let currentRoutes = [];
       let selectedRouteIndex = 0;
       let stops = [];
 
+      // ===== HELPERS =====
       function formatTime(minutes) {
-        if (minutes < 60) return `${minutes}m`;
-        const h = Math.floor(minutes / 60);
-        const m = minutes % 60;
-        if (m === 0) return `${h}h`;
-        return `${h}h ${m}m`;
+        if (minutes < 60) return minutes + 'm';
+        var h = Math.floor(minutes / 60);
+        var m = minutes % 60;
+        if (m === 0) return h + 'h';
+        return h + 'h ' + m + 'm';
       }
 
       function formatCost(cost) {
-        return `$${Math.round(cost)}`;
+        return '$' + Math.round(cost);
       }
 
+      // ===== MAP UPDATE =====
       function updateMap() {
-        const route = currentRoutes[selectedRouteIndex];
+        var route = currentRoutes[selectedRouteIndex];
         if (!route) return;
 
-        const routeLinesGroup = document.getElementById('route-lines');
-        const locationDotsGroup = document.getElementById('location-dots');
-        const movingDot = document.getElementById('moving-dot');
+        var routeLinesGroup = document.getElementById('route-lines');
+        var locationDotsGroup = document.getElementById('location-dots');
+        var movingDot = document.getElementById('moving-dot');
 
         routeLinesGroup.innerHTML = '';
         locationDotsGroup.innerHTML = '';
         movingDot.style.display = 'none';
 
-        const locationIds = [route.path[0].from];
-        route.path.forEach(seg => {
-          if (!locationIds.includes(seg.to)) {
+        var locationIds = [route.path[0].from];
+        route.path.forEach(function(seg) {
+          if (locationIds.indexOf(seg.to) === -1) {
             locationIds.push(seg.to);
           }
         });
 
-        const pathPoints = [];
-        locationIds.forEach(id => {
+        var pathPoints = [];
+        locationIds.forEach(function(id) {
           if (mapCoordinates[id]) {
             pathPoints.push(mapCoordinates[id]);
           }
@@ -1006,32 +1005,31 @@
 
         if (pathPoints.length < 2) return;
 
-        let pathD = `M ${pathPoints[0].x} ${pathPoints[0].y}`;
-        for (let i = 1; i < pathPoints.length; i++) {
-          pathD += ` L ${pathPoints[i].x} ${pathPoints[i].y}`;
+        var pathD = 'M ' + pathPoints[0].x + ' ' + pathPoints[0].y;
+        for (var i = 1; i < pathPoints.length; i++) {
+          pathD += ' L ' + pathPoints[i].x + ' ' + pathPoints[i].y;
         }
 
-        let totalLength = 0;
-        for (let i = 1; i < pathPoints.length; i++) {
-          const dx = pathPoints[i].x - pathPoints[i-1].x;
-          const dy = pathPoints[i].y - pathPoints[i-1].y;
+        var totalLength = 0;
+        for (var i = 1; i < pathPoints.length; i++) {
+          var dx = pathPoints[i].x - pathPoints[i-1].x;
+          var dy = pathPoints[i].y - pathPoints[i-1].y;
           totalLength += Math.sqrt(dx * dx + dy * dy);
         }
 
-        const routeLine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        var routeLine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         routeLine.setAttribute('d', pathD);
         routeLine.setAttribute('class', 'route-line');
         routeLine.setAttribute('stroke-dasharray', totalLength);
         routeLine.setAttribute('stroke-dashoffset', totalLength);
         routeLinesGroup.appendChild(routeLine);
 
-        locationIds.forEach((id, index) => {
-          const coord = mapCoordinates[id];
+        locationIds.forEach(function(id, index) {
+          var coord = mapCoordinates[id];
           if (!coord) return;
+          var dest = destinations[id];
 
-          const dest = destinations[id];
-
-          const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
           dot.setAttribute('cx', coord.x);
           dot.setAttribute('cy', coord.y);
           dot.setAttribute('r', index === 0 ? 10 : 8);
@@ -1039,7 +1037,7 @@
           dot.setAttribute('data-index', index);
           locationDotsGroup.appendChild(dot);
 
-          const labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          var labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
           labelBg.setAttribute('x', coord.x - 28);
           labelBg.setAttribute('y', coord.y - 21);
           labelBg.setAttribute('width', 56);
@@ -1047,43 +1045,144 @@
           labelBg.setAttribute('class', 'location-label-bg');
           locationDotsGroup.appendChild(labelBg);
 
-          const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           label.setAttribute('x', coord.x);
-          label.setAttribute('y', coord.y - 15);
+          label.setAttribute('y', coord.y - 12);
           label.setAttribute('class', 'location-label');
           label.textContent = dest.name;
           locationDotsGroup.appendChild(label);
         });
 
-        setTimeout(() => {
+        setTimeout(function() {
           routeLine.classList.add('animate');
         }, 100);
       }
 
+      // ===== STOPS MANAGEMENT =====
+      function createStopSelect() {
+        var startSelect = document.getElementById('start-select');
+        var options = startSelect.innerHTML;
+        return options.replace('Select starting point...', 'Select a stop...');
+      }
+
+      function addStop() {
+        var container = document.getElementById('stops-container');
+        var stopIndex = container.children.length + 1;
+        var row = document.createElement('div');
+        row.className = 'stop-row';
+        row.innerHTML = '<span class="stop-label">Stop ' + stopIndex + ':</span>' +
+          '<select class="stop-select">' + createStopSelect() + '</select>' +
+          '<button class="remove-stop-btn" title="Remove stop">&times;</button>';
+
+        var removeBtn = row.querySelector('.remove-stop-btn');
+        removeBtn.addEventListener('click', function() {
+          row.remove();
+          renumberStops();
+        });
+
+        container.appendChild(row);
+      }
+
+      function renumberStops() {
+        var container = document.getElementById('stops-container');
+        var rows = container.querySelectorAll('.stop-row');
+        rows.forEach(function(row, i) {
+          row.querySelector('.stop-label').textContent = 'Stop ' + (i + 1) + ':';
+        });
+      }
+
+      function getStopValues() {
+        var stopSelects = document.querySelectorAll('.stop-select');
+        var values = [];
+        stopSelects.forEach(function(sel) {
+          if (sel.value) values.push(sel.value);
+        });
+        return values;
+      }
+
+      // ===== PLAN ROUTE =====
       function planRoute() {
-        const start = document.getElementById('start-select').value;
-        const end = document.getElementById('end-select').value;
+        var start = document.getElementById('start-select').value;
+        var end = document.getElementById('end-select').value;
 
         if (!start || !end) {
           alert('Please select both a starting point and destination!');
           return;
         }
 
-        currentRoutes = findAllRoutes(start, end, currentPriority);
-        selectedRouteIndex = 0;
+        // Build waypoints: start -> stops -> end
+        var stopValues = getStopValues();
+        var waypoints = [start].concat(stopValues).concat([end]);
 
-        const container = document.getElementById('results-container');
-        if (currentRoutes.length === 0) {
-          container.innerHTML = '<div class="results-section"><div class="no-route">We couldn\'t find a route between these destinations.</div></div>';
-        } else {
-          let html = '';
-          currentRoutes.forEach((route) => {
-            html += `<div class="results-section"><div class="results-header">Your Journey</div><div class="results-body">`;
-            route.path.forEach((seg, i) => {
-              html += `<div class="journey-step"><div class="step-timeline"><div class="step-number">${i + 1}</div></div><div class="step-content"><div class="step-route">${destinations[seg.from].name} → ${destinations[seg.to].name}</div><div class="step-details"><span>⏱️ ${formatTime(seg.time)}</span> <span>💵 ${formatCost(seg.cost)}</span></div><div class="step-instructions">${seg.instructions}</div></div></div>`;
-            });
-            html += `</div><div class="route-summary"><div class="summary-item"><div class="summary-value">${formatTime(route.totalTime)}</div><div class="summary-label">Total</div></div><div class="summary-item"><div class="summary-value">~${formatCost(route.totalCost)}</div><div class="summary-label">Cost</div></div></div></div>`;
+        // Find routes for each leg
+        var allLegs = [];
+        var totalTime = 0;
+        var totalCost = 0;
+        var routeFound = true;
+
+        for (var i = 0; i < waypoints.length - 1; i++) {
+          var legRoutes = findAllRoutes(waypoints[i], waypoints[i + 1], currentPriority);
+          if (legRoutes.length === 0) {
+            routeFound = false;
+            break;
+          }
+          var bestLeg = legRoutes[0];
+          bestLeg.path.forEach(function(seg) {
+            allLegs.push(seg);
+            totalTime += seg.time;
+            totalCost += seg.cost;
           });
+        }
+
+        // Also find simple direct routes (no stops) for display
+        if (stopValues.length === 0) {
+          currentRoutes = findAllRoutes(start, end, currentPriority);
+        } else if (routeFound) {
+          currentRoutes = [{
+            path: allLegs,
+            totalTime: totalTime,
+            totalCost: totalCost,
+            avgComfort: 7,
+            steps: allLegs.length,
+            score: 0
+          }];
+        } else {
+          currentRoutes = [];
+        }
+
+        selectedRouteIndex = 0;
+        var container = document.getElementById('results-container');
+
+        if (currentRoutes.length === 0) {
+          container.innerHTML = '<div class="results-section"><div class="no-route"><div class="icon">🗺️</div><p>We couldn\'t find a route between these destinations.<br>Try different locations or remove some stops.</p></div></div>';
+        } else {
+          var html = '';
+          currentRoutes.forEach(function(route, routeIdx) {
+            var label = routeIdx === 0 ? 'Recommended Route' : 'Alternative ' + routeIdx;
+            html += '<div class="results-section"><div class="results-header"><span>' + label + '</span><span class="route-type-badge">' + route.path.length + ' leg' + (route.path.length > 1 ? 's' : '') + '</span></div><div class="results-body">';
+
+            route.path.forEach(function(seg, i) {
+              html += '<div class="journey-step">' +
+                '<div class="step-timeline"><div class="step-number">' + (i + 1) + '</div>' +
+                (i < route.path.length - 1 ? '<div class="step-line"></div>' : '') +
+                '</div><div class="step-content">' +
+                '<div class="step-header"><span class="step-route">' + destinations[seg.from].name + ' → ' + destinations[seg.to].name + '</span>' +
+                '<span class="step-mode">' + seg.icon + ' ' + seg.mode + '</span></div>' +
+                '<div class="step-details">' +
+                '<span class="step-detail"><span class="icon">⏱️</span> ' + formatTime(seg.time) + '</span>' +
+                '<span class="step-detail"><span class="icon">💵</span> ' + formatCost(seg.cost) + '</span>' +
+                '</div>' +
+                '<div class="step-instructions">' + seg.instructions + '</div>' +
+                '</div></div>';
+            });
+
+            html += '</div><div class="route-summary">' +
+              '<div class="summary-item"><div class="summary-value">' + formatTime(route.totalTime) + '</div><div class="summary-label">Total Time</div></div>' +
+              '<div class="summary-item"><div class="summary-value">~' + formatCost(route.totalCost) + '</div><div class="summary-label">Est. Cost</div></div>' +
+              '<div class="summary-item"><div class="summary-value">' + route.path.length + '</div><div class="summary-label">Leg' + (route.path.length > 1 ? 's' : '') + '</div></div>' +
+              '</div></div>';
+          });
+
           container.innerHTML = html;
         }
 
@@ -1091,9 +1190,31 @@
         updateMap();
       }
 
+      // ===== EVENT LISTENERS =====
       document.getElementById('plan-btn').addEventListener('click', planRoute);
-      document.getElementById('start-select').addEventListener('change', planRoute);
-      document.getElementById('end-select').addEventListener('change', planRoute);
+
+      document.getElementById('start-select').addEventListener('change', function() {
+        if (document.getElementById('end-select').value) planRoute();
+      });
+
+      document.getElementById('end-select').addEventListener('change', function() {
+        if (document.getElementById('start-select').value) planRoute();
+      });
+
+      document.getElementById('add-stop-btn').addEventListener('click', addStop);
+
+      // Priority buttons
+      document.querySelectorAll('.priority-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.priority-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentPriority = btn.getAttribute('data-priority');
+          if (document.getElementById('start-select').value && document.getElementById('end-select').value) {
+            planRoute();
+          }
+        });
+      });
+
     })();
   </script>
 </body>
