@@ -554,7 +554,7 @@
       ry: 4;
     }
     .location-label {
-      font-size: 16px;
+      font-size: 11px;
       font-weight: 800;
       fill: #1e293b;
       text-anchor: middle;
@@ -1578,14 +1578,14 @@
           const labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
           labelBg.setAttribute('x', coord.x - 50);
           labelBg.setAttribute('y', coord.y - 32);
-          labelBg.setAttribute('x', coord.x - 42);
-          labelBg.setAttribute('y', coord.y - 30);
-          labelBg.setAttribute('width', 84);
-          labelBg.setAttribute('height', 20);
+          labelBg.setAttribute('x', coord.x - 28);
+          labelBg.setAttribute('y', coord.y - 21);
+          labelBg.setAttribute('width', 56);
+          labelBg.setAttribute('height', 13);
           // Create label
           const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           label.setAttribute('x', coord.x);
-          label.setAttribute('y', coord.y - 18);
+          label.setAttribute('y', coord.y - 15);
           label.setAttribute('class', 'location-label');
           label.textContent = dest.name;
           locationDotsGroup.appendChild(label);
