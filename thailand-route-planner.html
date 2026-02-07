@@ -535,7 +535,7 @@
     }
 
     .location-dot.visited {
-      fill: #16a34a;
+      fill: #fbbf24;
     }
 
     .location-dot.current {
@@ -547,7 +547,12 @@
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.3); opacity: 0.8; }
     }
-
+.location-label-bg {
+      fill: #ffffff;
+      opacity: 0.85;
+      rx: 4;
+      ry: 4;
+    }
     .location-label {
       font-size: 16px;
       font-weight: 800;
@@ -1568,6 +1573,15 @@
           dot.setAttribute('class', 'location-dot');
           dot.setAttribute('data-index', index);
           locationDotsGroup.appendChild(dot);
+
+        // Create label background
+          const labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          labelBg.setAttribute('x', coord.x - 50);
+          labelBg.setAttribute('y', coord.y - 32);
+          labelBg.setAttribute('width', 100);
+          labelBg.setAttribute('height', 24);
+          labelBg.setAttribute('class', 'location-label-bg');
+          locationDotsGroup.appendChild(labelBg);
 
           // Create label
           const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
