@@ -511,7 +511,7 @@
     .route-line {
       fill: none;
       stroke: #dc2626;
-      stroke-width: 3;
+      stroke-width: 6;
       stroke-linecap: round;
       stroke-linejoin: round;
       stroke-dasharray: 1000;
@@ -549,8 +549,8 @@
     }
 
     .location-label {
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 800;
       fill: #1e293b;
       text-anchor: middle;
       filter: drop-shadow(0 1px 2px rgba(255,255,255,0.8));
@@ -1564,7 +1564,7 @@
           const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
           dot.setAttribute('cx', coord.x);
           dot.setAttribute('cy', coord.y);
-          dot.setAttribute('r', index === 0 ? 8 : 6);
+          dot.setAttribute('r', index === 0 ? 14 : 11);
           dot.setAttribute('class', 'location-dot');
           dot.setAttribute('data-index', index);
           locationDotsGroup.appendChild(dot);
@@ -1572,7 +1572,7 @@
           // Create label
           const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           label.setAttribute('x', coord.x);
-          label.setAttribute('y', coord.y - 12);
+          label.setAttribute('y', coord.y - 18);
           label.setAttribute('class', 'location-label');
           label.textContent = dest.name;
           locationDotsGroup.appendChild(label);
