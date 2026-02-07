@@ -1571,18 +1571,17 @@
           dot.setAttribute('cy', coord.y);
           dot.setAttribute('r', index === 0 ? 14 : 11);
           dot.setAttribute('class', 'location-dot');
-          dot.setAttribute('data-index', index);
+          ddot.setAttribute('r', index === 0 ? 10 : 8);
           locationDotsGroup.appendChild(dot);
 
         // Create label background
           const labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
           labelBg.setAttribute('x', coord.x - 50);
           labelBg.setAttribute('y', coord.y - 32);
-          labelBg.setAttribute('width', 100);
-          labelBg.setAttribute('height', 24);
-          labelBg.setAttribute('class', 'location-label-bg');
-          locationDotsGroup.appendChild(labelBg);
-
+          labelBg.setAttribute('x', coord.x - 42);
+          labelBg.setAttribute('y', coord.y - 30);
+          labelBg.setAttribute('width', 84);
+          labelBg.setAttribute('height', 20);
           // Create label
           const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           label.setAttribute('x', coord.x);
