@@ -244,4 +244,857 @@
     }
 
     .route-type-badge {
-      background: rgba(0,0,0,0.2
+      background: rgba(0,0,0,0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .results-body {
+      padding: 1.5rem;
+    }
+
+    /* Journey Step */
+    .journey-step {
+      display: flex;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .journey-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 1rem;
+      min-width: 40px;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: #C9A961;
+      color: #000000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .step-line {
+      width: 3px;
+      flex: 1;
+      background: #444;
+      margin-top: 0.5rem;
+    }
+
+    .journey-step:last-child .step-line {
+      display: none;
+    }
+
+    .step-content {
+      flex: 1;
+      background: #2a2a2a;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid #444;
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .step-route {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 1.05rem;
+    }
+
+    .step-mode {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #333;
+      color: #C9A961;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.25rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #C9A961;
+    }
+
+    .step-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .step-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .step-detail .icon {
+      font-size: 1rem;
+    }
+
+    .step-instructions {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed #444;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .step-tip {
+      background: #2a2a1a;
+      color: #C9A961;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.375rem;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      border: 1px solid #C9A961;
+    }
+
+    .step-tip .icon {
+      flex-shrink: 0;
+    }
+
+    /* Route Summary */
+    .route-summary {
+      background: linear-gradient(135deg, #C9A961 0%, #a88a4a 100%);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .summary-item {
+      text-align: center;
+      color: white;
+    }
+
+    .summary-value {
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+
+    .summary-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* Alternative Routes */
+    .alternatives-section {
+      margin-top: 2rem;
+    }
+
+    .alternatives-header {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .alternative-card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .alternative-card:hover {
+      border-color: #C9A961;
+      box-shadow: 0 4px 12px rgba(201, 169, 97, 0.15);
+    }
+
+    .alternative-card.active {
+      border-color: #C9A961;
+      background: #2a2a1a;
+    }
+
+    .alt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .alt-type {
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .alt-stats {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .alt-route-preview {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.5rem;
+    }
+
+    /* Map Section */
+    .map-section {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .map-container {
+      background: #b3d9ff;
+      border-radius: 1rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 600px;
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .map-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .map-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .route-line {
+      fill: none;
+      stroke: #000000;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .route-line.animate {
+      animation: drawLine 3s ease-out forwards;
+    }
+
+    @keyframes drawLine {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .location-dot {
+      fill: #dc2626;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+
+    .location-dot.visited {
+      fill: #dc2626;
+    }
+
+    .location-dot.current {
+      fill: #dc2626;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.8; }
+    }
+
+    .location-label-bg {
+      fill: #ffffff;
+      opacity: 0.85;
+      rx: 4;
+      ry: 4;
+    }
+
+    .location-label {
+      font-size: 11px;
+      font-weight: 700;
+      fill: #1e293b;
+      text-anchor: middle;
+      filter: drop-shadow(0 1px 2px rgba(255,255,255,0.8));
+    }
+
+    .moving-dot {
+      fill: #dc2626;
+      filter: drop-shadow(0 2px 6px rgba(220, 38, 38, 0.6));
+    }
+
+    .map-placeholder {
+      color: #3b82f6;
+      font-size: 1rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .map-caption {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .map-legend {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .legend-dot.start { background: #dc2626; }
+    .legend-dot.visited { background: #16a34a; }
+
+    /* Responsive map */
+    @media (max-width: 650px) {
+      .map-wrapper {
+        width: 100%;
+        height: 400px;
+      }
+    }
+
+    /* No route message */
+    .no-route {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: #64748b;
+    }
+
+    .no-route .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .route-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .route-row label {
+        min-width: auto;
+      }
+      .stop-row {
+        padding-left: 0;
+        flex-wrap: wrap;
+      }
+      .stop-label {
+        min-width: 100%;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 0.25rem;
+      }
+      .add-stop-btn {
+        margin-left: 0;
+      }
+      .step-header {
+        flex-direction: column;
+      }
+      .route-summary {
+        padding: 1rem;
+      }
+      .summary-value {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="route-planner">
+    <!-- Header -->
+    <div class="planner-header">
+      <h1>🇹🇭 Thailand Route Planner</h1>
+      <p>Plan your journey across Thailand - we'll figure out all the connections for you!</p>
+    </div>
+
+    <!-- Route Builder -->
+    <div class="route-builder">
+      <div class="route-row">
+        <label>From:</label>
+        <select id="start-select">
+          <option value="">Select starting point...</option>
+          <optgroup label="Central">
+            <option value="bangkok">Bangkok</option>
+          </optgroup>
+          <optgroup label="North">
+            <option value="chiangmai">Chiang Mai</option>
+            <option value="chiangrai">Chiang Rai</option>
+            <option value="pai">Pai</option>
+          </optgroup>
+          <optgroup label="East Coast">
+            <option value="pattaya">Pattaya</option>
+            <option value="trat">Trat</option>
+            <option value="kohchang">Koh Chang</option>
+            <option value="kohkood">Koh Kood</option>
+          </optgroup>
+          <optgroup label="Gulf Islands">
+            <option value="suratthani">Surat Thani</option>
+            <option value="samui">Koh Samui</option>
+            <option value="kohphangan">Koh Phangan</option>
+            <option value="kohtao">Koh Tao</option>
+          </optgroup>
+          <optgroup label="Andaman Coast">
+            <option value="phuket">Phuket</option>
+            <option value="krabi">Krabi</option>
+            <option value="phiphi">Koh Phi Phi</option>
+            <option value="kohlanta">Koh Lanta</option>
+            <option value="kohyaoyai">Koh Yao Yai</option>
+            <option value="kohmook">Koh Mook</option>
+            <option value="kohlipe">Koh Lipe</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Stops Container -->
+      <div class="stops-container" id="stops-container">
+        <!-- Dynamic stops will be added here -->
+      </div>
+      <button class="add-stop-btn" id="add-stop-btn">
+        <span>+</span> Add a stop
+      </button>
+
+      <div class="route-row">
+        <label>To:</label>
+        <select id="end-select">
+          <option value="">Select destination...</option>
+          <optgroup label="Central">
+            <option value="bangkok">Bangkok</option>
+          </optgroup>
+          <optgroup label="North">
+            <option value="chiangmai">Chiang Mai</option>
+            <option value="chiangrai">Chiang Rai</option>
+            <option value="pai">Pai</option>
+          </optgroup>
+          <optgroup label="East Coast">
+            <option value="pattaya">Pattaya</option>
+            <option value="trat">Trat</option>
+            <option value="kohchang">Koh Chang</option>
+            <option value="kohkood">Koh Kood</option>
+          </optgroup>
+          <optgroup label="Gulf Islands">
+            <option value="suratthani">Surat Thani</option>
+            <option value="samui">Koh Samui</option>
+            <option value="kohphangan">Koh Phangan</option>
+            <option value="kohtao">Koh Tao</option>
+          </optgroup>
+          <optgroup label="Andaman Coast">
+            <option value="phuket">Phuket</option>
+            <option value="krabi">Krabi</option>
+            <option value="phiphi">Koh Phi Phi</option>
+            <option value="kohlanta">Koh Lanta</option>
+            <option value="kohyaoyai">Koh Yao Yai</option>
+            <option value="kohmook">Koh Mook</option>
+            <option value="kohlipe">Koh Lipe</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="priority-section">
+        <span class="priority-label">What matters most to you?</span>
+        <div class="priority-options">
+          <button class="priority-btn active" data-priority="speed">
+            <span class="icon">⚡</span> Fastest
+          </button>
+          <button class="priority-btn" data-priority="cost">
+            <span class="icon">💰</span> Cheapest
+          </button>
+          <button class="priority-btn" data-priority="comfort">
+            <span class="icon">🛋️</span> Most Comfortable
+          </button>
+        </div>
+      </div>
+
+      <button class="plan-btn" id="plan-btn">Plan My Journey</button>
+    </div>
+
+    <!-- Results -->
+    <div id="results-container"></div>
+
+    <!-- Map -->
+    <div class="map-section" id="map-section">
+      <div class="map-container">
+        <div class="map-wrapper" id="map-wrapper">
+          <!-- Your Thailand map image goes here -->
+          <img src="https://darkonlondon.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-7-2026-08_16_33-PM.jpg" alt="Thailand Map" class="map-image" id="map-image" onerror="this.style.display='none'">
+          <svg class="map-svg" id="map-svg" viewBox="0 0 600 500">
+            <!-- Route lines will be drawn here -->
+            <g id="route-lines"></g>
+            <!-- Location dots will be placed here -->
+            <g id="location-dots"></g>
+            <!-- Moving dot for animation -->
+            <circle id="moving-dot" class="moving-dot" r="8" style="display: none;"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="map-legend">
+        <div class="legend-item"><div class="legend-dot start"></div> Route</div>
+        <div class="legend-item"><div class="legend-dot visited"></div> Visited</div>
+      </div>
+      <p class="map-caption">Your route across Thailand</p>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ===== DESTINATION DATA =====
+      const destinations = {
+        // Central
+        bangkok: { name: 'Bangkok', region: 'Central', type: 'hub', hasAirport: true, hasTrainStation: true },
+        // North
+        chiangmai: { name: 'Chiang Mai', region: 'North', type: 'hub', hasAirport: true, hasTrainStation: true },
+        chiangrai: { name: 'Chiang Rai', region: 'North', type: 'city', hasAirport: true },
+        pai: { name: 'Pai', region: 'North', type: 'town' },
+        // East Coast
+        pattaya: { name: 'Pattaya', region: 'East', type: 'city' },
+        trat: { name: 'Trat', region: 'East', type: 'hub', hasAirport: true },
+        kohchang: { name: 'Koh Chang', region: 'East', type: 'island' },
+        kohkood: { name: 'Koh Kood', region: 'East', type: 'island' },
+        // Gulf
+        suratthani: { name: 'Surat Thani', region: 'Gulf', type: 'hub', hasAirport: true, hasTrainStation: true },
+        samui: { name: 'Koh Samui', region: 'Gulf', type: 'island', hasAirport: true },
+        kohphangan: { name: 'Koh Phangan', region: 'Gulf', type: 'island' },
+        kohtao: { name: 'Koh Tao', region: 'Gulf', type: 'island' },
+        // Andaman
+        phuket: { name: 'Phuket', region: 'Andaman', type: 'hub', hasAirport: true },
+        krabi: { name: 'Krabi', region: 'Andaman', type: 'hub', hasAirport: true },
+        phiphi: { name: 'Koh Phi Phi', region: 'Andaman', type: 'island' },
+        kohlanta: { name: 'Koh Lanta', region: 'Andaman', type: 'island' },
+        kohyaoyai: { name: 'Koh Yao Yai', region: 'Andaman', type: 'island' },
+        kohmook: { name: 'Koh Mook', region: 'Andaman', type: 'island' },
+        kohlipe: { name: 'Koh Lipe', region: 'Andaman', type: 'island' }
+      };
+
+      // ===== MAP COORDINATES =====
+      const mapCoordinates = {
+        chiangrai: { x: 260, y: 35 },
+        chiangmai: { x: 216, y: 88 },
+        pai: { x: 198, y: 52 },
+        bangkok: { x: 268, y: 236 },
+        pattaya: { x: 286, y: 252 },
+        trat: { x: 315, y: 258 },
+        kohchang: { x: 326, y: 286 },
+        kohkood: { x: 332, y: 294 },
+        suratthani: { x: 240, y: 379 },
+        samui: { x: 251, y: 367 },
+        kohphangan: { x: 254, y: 357 },
+        kohtao: { x: 252, y: 344 },
+        phuket: { x: 202, y: 416 },
+        krabi: { x: 214, y: 400 },
+        kohyaoyai: { x: 207, y: 406 },
+        phiphi: { x: 215, y: 414 },
+        kohlanta: { x: 225, y: 425 },
+        kohmook: { x: 228, y: 432 },
+        kohlipe: { x: 230, y: 457 }
+      };
+
+      // ===== TRANSPORT SEGMENTS (shortened for brevity - full version has all segments) =====
+      const segments = [
+        { from: 'bangkok', to: 'chiangmai', mode: 'flight', time: 75, cost: 35, comfort: 9, icon: '✈️',
+          instructions: 'Flights depart from Don Mueang (DMK). AirAsia, Nok Air, Lion Air, Thai VietJet all operate. Book early for $25-50 fares.' },
+        { from: 'bangkok', to: 'chiangmai', mode: 'sleeper-train', time: 660, cost: 40, comfort: 8, icon: '🚂',
+          instructions: 'Overnight sleeper train from Krung Thep Aphiwat Central Terminal. 10-14 hour journey.' },
+        { from: 'bangkok', to: 'chiangmai', mode: 'bus', time: 600, cost: 25, comfort: 6, icon: '🚌',
+          instructions: 'VIP buses from Chatuchak Bus Terminal. 9.5-12 hours.' },
+        { from: 'bangkok', to: 'pattaya', mode: 'bus', time: 150, cost: 6, comfort: 6, icon: '🚌',
+          instructions: 'Buses leave from Ekkamai every 30 mins.' },
+        { from: 'bangkok', to: 'trat', mode: 'bus', time: 360, cost: 12, comfort: 6, icon: '🚌',
+          instructions: 'Bus 999 from Ekkamai departs 07:45 & 09:00.' },
+        { from: 'trat', to: 'kohchang', mode: 'ferry', time: 45, cost: 4, comfort: 7, icon: '⛴️',
+          instructions: 'Ferries from Centerpoint Pier. Runs every 30-60 mins.' },
+        { from: 'chiangmai', to: 'pai', mode: 'minivan', time: 210, cost: 6, comfort: 5, icon: '🚐',
+          instructions: 'Minivans from Arcade Bus Station. 3-4 hours, 762 CURVES!' },
+      ];
+
+      // Make bidirectional
+      const allSegments = [];
+      segments.forEach(seg => {
+        allSegments.push(seg);
+        allSegments.push({ ...seg, from: seg.to, to: seg.from });
+      });
+
+      const locationRegions = {
+        chiangmai: { region: 'north', lat: 18.8 },
+        chiangrai: { region: 'north', lat: 19.9 },
+        pai: { region: 'north', lat: 19.4 },
+        bangkok: { region: 'central', lat: 13.8 },
+        pattaya: { region: 'east', lat: 12.9 },
+        trat: { region: 'east', lat: 12.2 },
+        kohchang: { region: 'east', lat: 12.0 },
+        kohkood: { region: 'east', lat: 11.6 },
+        suratthani: { region: 'gulf', lat: 9.1 },
+        samui: { region: 'gulf', lat: 9.5 },
+        kohphangan: { region: 'gulf', lat: 9.7 },
+        kohtao: { region: 'gulf', lat: 10.1 },
+        phuket: { region: 'andaman', lat: 7.9 },
+        krabi: { region: 'andaman', lat: 8.1 },
+        kohyaoyai: { region: 'andaman', lat: 8.0 },
+        phiphi: { region: 'andaman', lat: 7.7 },
+        kohlanta: { region: 'andaman', lat: 7.5 },
+        kohmook: { region: 'andaman', lat: 7.4 },
+        kohlipe: { region: 'andaman', lat: 6.5 }
+      };
+
+      function isTowardDestination(from, to, finalDest) {
+        const fromLoc = locationRegions[from];
+        const toLoc = locationRegions[to];
+        const destLoc = locationRegions[finalDest];
+        if (!fromLoc || !toLoc || !destLoc) return 0;
+        const distBefore = Math.abs(fromLoc.lat - destLoc.lat);
+        const distAfter = Math.abs(toLoc.lat - destLoc.lat);
+        const sameRegion = toLoc.region === destLoc.region;
+        let score = distBefore - distAfter;
+        if (sameRegion) score += 2;
+        if (to === finalDest) score += 10;
+        return score;
+      }
+
+      function findAllRoutes(start, end, priority) {
+        const routes = [];
+        const visited = new Set();
+        const maxDepth = 5;
+
+        function dfs(current, path, totalTime, totalCost, comfortSum, comfortCount) {
+          if (current === end) {
+            routes.push({
+              path: [...path],
+              totalTime,
+              totalCost,
+              avgComfort: comfortSum / comfortCount,
+              steps: path.length
+            });
+            return;
+          }
+          if (path.length >= maxDepth) return;
+
+          const nextSegments = allSegments.filter(s => s.from === current && !visited.has(s.to));
+          nextSegments.sort((a, b) => {
+            const aToward = isTowardDestination(current, a.to, end);
+            const bToward = isTowardDestination(current, b.to, end);
+            if (aToward > 0 && bToward <= 0) return -1;
+            if (bToward > 0 && aToward <= 0) return 1;
+            if (priority === 'speed') return a.time - b.time;
+            if (priority === 'cost') return a.cost - b.cost;
+            return b.comfort - a.comfort;
+          });
+
+          for (const seg of nextSegments) {
+            visited.add(seg.to);
+            path.push(seg);
+            dfs(seg.to, path, totalTime + seg.time, totalCost + seg.cost, comfortSum + seg.comfort, comfortCount + 1);
+            path.pop();
+            visited.delete(seg.to);
+          }
+        }
+
+        visited.add(start);
+        dfs(start, [], 0, 0, 0, 0);
+
+        routes.forEach(route => {
+          let baseScore;
+          if (priority === 'speed') baseScore = route.totalTime + (route.steps * 30);
+          else if (priority === 'cost') baseScore = route.totalCost + (route.steps * 2);
+          else baseScore = (10 - route.avgComfort) * 100 + route.steps * 20;
+          route.score = baseScore;
+        });
+
+        routes.sort((a, b) => a.score - b.score);
+        return routes.slice(0, 3);
+      }
+
+      let currentPriority = 'speed';
+      let currentRoutes = [];
+      let selectedRouteIndex = 0;
+      let stops = [];
+
+      function formatTime(minutes) {
+        if (minutes < 60) return `${minutes}m`;
+        const h = Math.floor(minutes / 60);
+        const m = minutes % 60;
+        if (m === 0) return `${h}h`;
+        return `${h}h ${m}m`;
+      }
+
+      function formatCost(cost) {
+        return `$${Math.round(cost)}`;
+      }
+
+      function updateMap() {
+        const route = currentRoutes[selectedRouteIndex];
+        if (!route) return;
+
+        const routeLinesGroup = document.getElementById('route-lines');
+        const locationDotsGroup = document.getElementById('location-dots');
+        const movingDot = document.getElementById('moving-dot');
+
+        routeLinesGroup.innerHTML = '';
+        locationDotsGroup.innerHTML = '';
+        movingDot.style.display = 'none';
+
+        const locationIds = [route.path[0].from];
+        route.path.forEach(seg => {
+          if (!locationIds.includes(seg.to)) {
+            locationIds.push(seg.to);
+          }
+        });
+
+        const pathPoints = [];
+        locationIds.forEach(id => {
+          if (mapCoordinates[id]) {
+            pathPoints.push(mapCoordinates[id]);
+          }
+        });
+
+        if (pathPoints.length < 2) return;
+
+        let pathD = `M ${pathPoints[0].x} ${pathPoints[0].y}`;
+        for (let i = 1; i < pathPoints.length; i++) {
+          pathD += ` L ${pathPoints[i].x} ${pathPoints[i].y}`;
+        }
+
+        let totalLength = 0;
+        for (let i = 1; i < pathPoints.length; i++) {
+          const dx = pathPoints[i].x - pathPoints[i-1].x;
+          const dy = pathPoints[i].y - pathPoints[i-1].y;
+          totalLength += Math.sqrt(dx * dx + dy * dy);
+        }
+
+        const routeLine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        routeLine.setAttribute('d', pathD);
+        routeLine.setAttribute('class', 'route-line');
+        routeLine.setAttribute('stroke-dasharray', totalLength);
+        routeLine.setAttribute('stroke-dashoffset', totalLength);
+        routeLinesGroup.appendChild(routeLine);
+
+        locationIds.forEach((id, index) => {
+          const coord = mapCoordinates[id];
+          if (!coord) return;
+
+          const dest = destinations[id];
+
+          const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          dot.setAttribute('cx', coord.x);
+          dot.setAttribute('cy', coord.y);
+          dot.setAttribute('r', index === 0 ? 10 : 8);
+          dot.setAttribute('class', 'location-dot');
+          dot.setAttribute('data-index', index);
+          locationDotsGroup.appendChild(dot);
+
+          const labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          labelBg.setAttribute('x', coord.x - 28);
+          labelBg.setAttribute('y', coord.y - 21);
+          labelBg.setAttribute('width', 56);
+          labelBg.setAttribute('height', 13);
+          labelBg.setAttribute('class', 'location-label-bg');
+          locationDotsGroup.appendChild(labelBg);
+
+          const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          label.setAttribute('x', coord.x);
+          label.setAttribute('y', coord.y - 15);
+          label.setAttribute('class', 'location-label');
+          label.textContent = dest.name;
+          locationDotsGroup.appendChild(label);
+        });
+
+        setTimeout(() => {
+          routeLine.classList.add('animate');
+        }, 100);
+      }
+
+      function planRoute() {
+        const start = document.getElementById('start-select').value;
+        const end = document.getElementById('end-select').value;
+
+        if (!start || !end) {
+          alert('Please select both a starting point and destination!');
+          return;
+        }
+
+        currentRoutes = findAllRoutes(start, end, currentPriority);
+        selectedRouteIndex = 0;
+
+        const container = document.getElementById('results-container');
+        if (currentRoutes.length === 0) {
+          container.innerHTML = '<div class="results-section"><div class="no-route">We couldn\'t find a route between these destinations.</div></div>';
+        } else {
+          let html = '';
+          currentRoutes.forEach((route) => {
+            html += `<div class="results-section"><div class="results-header">Your Journey</div><div class="results-body">`;
+            route.path.forEach((seg, i) => {
+              html += `<div class="journey-step"><div class="step-timeline"><div class="step-number">${i + 1}</div></div><div class="step-content"><div class="step-route">${destinations[seg.from].name} → ${destinations[seg.to].name}</div><div class="step-details"><span>⏱️ ${formatTime(seg.time)}</span> <span>💵 ${formatCost(seg.cost)}</span></div><div class="step-instructions">${seg.instructions}</div></div></div>`;
+            });
+            html += `</div><div class="route-summary"><div class="summary-item"><div class="summary-value">${formatTime(route.totalTime)}</div><div class="summary-label">Total</div></div><div class="summary-item"><div class="summary-value">~${formatCost(route.totalCost)}</div><div class="summary-label">Cost</div></div></div></div>`;
+          });
+          container.innerHTML = html;
+        }
+
+        document.getElementById('map-section').style.display = 'block';
+        updateMap();
+      }
+
+      document.getElementById('plan-btn').addEventListener('click', planRoute);
+      document.getElementById('start-select').addEventListener('change', planRoute);
+      document.getElementById('end-select').addEventListener('change', planRoute);
+    })();
+  </script>
+</body>
+</html>
