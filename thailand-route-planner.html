@@ -428,18 +428,10 @@
       border-radius: 0.5rem;
       overflow: hidden;
     }
-    .map-image {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
     .map-svg {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      display: block;
     }
     .route-line {
       fill: none;
@@ -681,8 +673,8 @@
     <div class="map-section" id="map-section">
       <div class="map-container">
         <div class="map-wrapper" id="map-wrapper">
-          <img src="https://darkonlondon.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-7-2026-08_31_32-PM.png" alt="Thailand Map" class="map-image" id="map-image" onerror="this.style.display='none'">
-          <svg class="map-svg" id="map-svg" viewBox="0 0 600 500">
+          <svg class="map-svg" id="map-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
+            <image href="https://darkonlondon.com/wp-content/uploads/2026/02/ChatGPT-Image-Feb-7-2026-08_31_32-PM.png" x="0" y="0" width="600" height="500" preserveAspectRatio="none" />
             <g id="route-lines"></g>
             <g id="location-dots"></g>
             <circle id="moving-dot" class="moving-dot" r="8" style="display: none;"></circle>
