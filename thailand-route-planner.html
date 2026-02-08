@@ -422,7 +422,7 @@
     .map-wrapper {
       position: relative;
       width: 600px;
-      height: 500px;
+      aspect-ratio: 6 / 5;
       background-size: cover;
       background-position: center;
       border-radius: 0.5rem;
@@ -431,7 +431,7 @@
     .map-image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
     }
     .map-svg {
       position: absolute;
@@ -526,7 +526,7 @@
     @media (max-width: 650px) {
       .map-wrapper {
         width: 100%;
-        height: 400px;
+        aspect-ratio: 6 / 5;
       }
     }
     /* No route message */
